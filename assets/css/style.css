@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Dosis", sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.stepper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  width: 30vw;
+  height: 50px;
+  font-size: 35px;
+  z-index: 50;
+}
+.stepper .active {
+  color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background-color: #16213E;
+  height: 100vh;
+  padding-bottom: 35px;
+}
+.container .greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  height: 70%;
+  width: 60%;
+  border-radius: 25px;
+  color: white;
+  background-color: #16213E;
+  padding-top: 100px;
+}
+.container .greeting h1 {
+  font-size: 100px;
+}
+.container .greeting p {
+  font-size: 25px;
+}
+.container .questions {
+  background-color: white;
+  padding: 25px;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+  width: 80%;
+  border-radius: 25px;
+}
+.container .questions .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.container .questions .header .timer {
+  width: 90px;
+  height: 45px;
+  border: 1px solid #533483;
+  border-radius: 5px;
+  padding: 1px;
+  color: #16213E;
+  text-align: center;
+}
+.container .questions .header .timer span.seconds {
+  font-size: 30px;
+}
+.container .questions .header .timer span.icon {
+  width: 50%;
+  font-size: 30px;
+}
+.container .questions .header p {
+  font-size: 50px;
+}
+.container .questions .answer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #533483;
+}
+.container .questions .answer p {
+  font-size: 20px;
+}
+.container .questions .answer .answer-icon {
+  font-size: 25px;
+}
+.container .questions .answer .fa-xmark {
+  color: red;
+}
+.container .questions .answer .fa-check {
+  color: green;
+}
+.container .questions .correct-answer {
+  background-color: #B2FFE5;
+  border-color: #6bf1c4;
+}
+.container .questions .wrong-answer {
+  background-color: #edb2b2;
+  border-color: #f34646;
+}
+.container .questions .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.container .questions .footer .progress-bar {
+  width: 90%;
+  height: 40px;
+  border-radius: 25px;
+  background-color: #533483;
+  padding: 10px 15px;
+}
+.container .questions .footer .progress-bar > div {
+  width: 10%;
+  height: 20px;
+  border-radius: 15px;
+  font-weight: 700;
+  background-color: #E94560;
+  text-align: center;
+}
+.container .questions .footer .btn {
+  height: 40px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  color: white;
+  border-radius: 10px;
+  background-color: #533483;
+  border: 0px;
+  font-size: 20px;
+  outline: 0px;
+}
+.btn:hover {
+  background-color: #E94560;
+  transition-duration: 0.5s;
+}/*# sourceMappingURL=style.css.map */

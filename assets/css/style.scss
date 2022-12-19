@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+@import './variables';
+@mixin flex($direction,$justify,$align,$gap){
+    display: flex;
+    flex-direction:$direction;
+    justify-content:$justify;
+    align-items: $align;
+    gap:$gap;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis' , sans-serif;
+}
+.hidden{
+    display: none;
+    // visibility: hidden;
+}
+.stepper{
+    @include flex(row,space-around,center,0);
+    position: absolute;
+    background-color: white;
+    // color: $primary-color;
+    border-radius: 5px;
+    width: 30vw;
+    height:50px;
+    font-size: 35px;
+    z-index: 50;
+    .active{
+        color: red;
+    }
+}
+.container{
+    @include flex(row,center,center,0);
+    background-color: $primary-color;
+    height: 100vh;
+    padding-bottom: 35px;
+
+    .greeting{
+        @include flex(column,start,center,15px);
+        height: 70%;
+        width: 60%;
+        border-radius: 25px;
+        color: white;
+        background-color: $primary-color;
+        padding-top: 100px;
+        h1{
+            font-size: 100px;
+        }
+        p{
+            font-size: 25px;
+        }
+    }
+    .questions{
+        background-color: white;
+        padding: 25px;
+        min-height: max-content;
+        width: 80%;
+        border-radius: 25px;
+        .header{
+            @include flex(row,space-between,center,15px);
+            .timer{
+                width: 90px;
+                height: 45px;
+                border: 1px solid $third-color;
+                border-radius: 5px;
+                padding: 1px;
+                color: $primary-color;
+                text-align: center;
+                span.seconds{
+                    font-size: 30px;
+                }
+                span.icon{
+                    width: 50%;
+                    // text-align: center;
+                    font-size: 30px;
+                }
+            }
+            p{
+                font-size: 50px;
+            }
+        }
+        .answer{
+            @include flex(row,space-between,center,10px);
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            height: max-content;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid $third-color;
+            p{
+                font-size: 20px;
+            }
+            .answer-icon{
+                font-size: 25px;
+            }
+            .fa-xmark{
+                color: red;
+            }
+            .fa-check{
+                color: green;
+            }
+        }
+        .correct-answer{
+            background-color: #B2FFE5;
+            border-color: #6bf1c4;
+        }
+        .wrong-answer{
+            background-color: #edb2b2;
+            border-color: #f34646;
+        }
+        .footer{
+            @include flex(row,space-between,center,10px);
+            .progress-bar{
+                width: 90%;
+                height: 40px;
+                border-radius: 25px;
+                background-color: $third-color;
+                padding: 10px 15px;
+
+                >div{
+                    width: 10%;
+                    height: 20px;
+                    border-radius: 15px;
+                    font-weight: 700;
+                    background-color: $secondary-color;
+                    text-align: center;
+                }
+            }
+            .btn{
+                height: 40px;
+            }
+        }
+    }
+}
+.btn{
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    color: white;
+    border-radius: 10px;
+    background-color: $third-color;
+    border:0px;
+    font-size: 20px;
+    outline: 0px;
+    &:hover{
+        background-color: $secondary-color;
+        transition-duration: 0.5s;
+    }
+}
+
