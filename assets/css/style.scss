@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 @import './variables';
 @mixin flex($direction,$justify,$align,$gap){
@@ -20,16 +20,18 @@
 }
 .stepper{
     @include flex(row,space-around,center,0);
-    position: absolute;
+    position: fixed;
+    left: 35%;
+    top: 8%;
     background-color: white;
-    // color: $primary-color;
+    color: $third-color;
     border-radius: 5px;
     width: 30vw;
     height:50px;
-    font-size: 35px;
+    font-size: 30px;
     z-index: 50;
     .active{
-        color: red;
+        color: $secondary-color;
     }
 }
 .container{
@@ -49,15 +51,16 @@
         h1{
             font-size: 100px;
         }
-        p{
+        p , ul{
             font-size: 25px;
+            font-weight: 100;
         }
     }
     .questions{
         background-color: white;
         padding: 25px;
         min-height: max-content;
-        width: 80%;
+        width: 60%;
         border-radius: 25px;
         .header{
             @include flex(row,space-between,center,15px);
@@ -91,6 +94,7 @@
             padding: 20px;
             border-radius: 5px;
             border: 1px solid $third-color;
+            transition-duration: 0.5s;
             p{
                 font-size: 20px;
             }
@@ -103,6 +107,12 @@
             .fa-check{
                 color: green;
             }
+            
+        }
+        .selected{
+            background-color: $fourth-color;
+            color: white;
+            transition-duration: 0.5s;
         }
         .correct-answer{
             background-color: #B2FFE5;
@@ -120,12 +130,12 @@
                 border-radius: 25px;
                 background-color: $third-color;
                 padding: 10px 15px;
-
                 >div{
                     width: 10%;
                     height: 20px;
                     border-radius: 15px;
-                    font-weight: 700;
+                    font-weight: 500;
+                    color: white;
                     background-color: $secondary-color;
                     text-align: center;
                 }
@@ -135,6 +145,19 @@
             }
         }
     }
+    .result{
+        text-align: center;
+        color: white;
+        *{
+            margin: 10px 5px;
+        }
+        p{
+            font-size: 40px;
+        }
+        small{
+            font-size: 20px;
+        }
+    }
 }
 .btn{
     cursor: pointer;
@@ -142,12 +165,12 @@
     height: 50px;
     color: white;
     border-radius: 10px;
-    background-color: $third-color;
+    background-color: $secondary-color;
     border:0px;
     font-size: 20px;
     outline: 0px;
     &:hover{
-        background-color: $secondary-color;
+        background-color: $third-color;
         transition-duration: 0.5s;
     }
 }

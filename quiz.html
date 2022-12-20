@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="stepper">
-        <div id="info active">
-            <i class="fa-solid fa-circle-info"></i>
+        <div id="info">
+            <i class="fa-solid fa-info active"></i>
         </div>
         <div id="quiz">
-            <i class="fa-solid fa-laptop-code"></i>
+            <i class="fa-solid fa-code"></i>
         </div>
         <div id="result">
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-list-check"></i>
         </div>
     </div>
     <div class="step">
@@ -24,11 +24,19 @@
             <div class="greeting">
                 <h1>Welcome to <span>PHP Quiz</span>!</h1>
                 <p>Improve Your Skills In PHP And Become a Master With Quizsite</p>
+                <ul>
+                    <li>each question has four answers</li>
+                    <li>each question has a time limit of 30 second</li>
+                    <li>if you exceeded the time the answer is submited false</li>
+                    <li>your score will be shown at the end</li>
+                    <li>Good luck and remember IF IT WORKS DON'T TOUCH IT</li>
+
+                </ul>
                 <button class="btn">Get Started</button>
             </div>
         </div>
     </div>
-    <div class="step">
+    <div class="step hidden">
         <div class="container">
             <div class="questions">
                 <div class="header">
@@ -39,32 +47,68 @@
                     </div>
                 </div>
                 <div class="answers">
-                    <div class="answer correct-answer">
-                        <p>answerf</p>
+                    <div class="answer">
+                        <p>
+                            <input class="hidden" type="checkbox" name="choices" id="">
+                            <span>
+                                answerf
+                            </span>
+                        </p>
                         <i class="answer-icon fas fa-check"></i>
                     </div>
-                    <div class="answer wrong-answer">
-                        <p>answerf Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto velit laborum quo quia ad aliquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis deserunt quia dolores ab quaerat, ex enim sapiente molestias illo obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, voluptatum atque eius animi numquam tempore eos aliquam ut quaerat eum.</p>
-                        <i class="answer-icon fas fa-xmark"></i>
+                    <div class="answer">
+                        <p>
+                            <input class="hidden" type="checkbox" name="choices" id="">
+                            <span>
+                                answerf
+                            </span>
+                        </p>
+                        <i class="answer-icon fas fa-check"></i>
                     </div>
                     <div class="answer">
-                        <p>answerf</p>
-                        <i class="answer-icon fas fa-xmark"></i>
+                        <p>
+                            <input class="hidden" type="checkbox" name="choices" id="">
+                            <span>
+                                answerf
+                            </span>
+                        </p>
+                        <i class="answer-icon fas fa-check"></i>
                     </div>
                     <div class="answer">
-                        <p>answerf</p>
-                        <i class="answer-icon fas fa-xmark"></i>
+                        <p>
+                            <input class="hidden" type="checkbox" name="choices" id="">
+                            <span>
+                                answerf
+                            </span>
+                        </p>
+                        <i class="answer-icon fas fa-check"></i>
                     </div>
                 </div>
                 <div class="footer">
                     <div class="progress-bar">
                         <div>10%</div>
                     </div>
-                    <button class="btn">Next</button>
+                    <button class="btn" onclick="checkedBox();">Next</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="step"></div>
+    <div class="step hidden">
+        <div class="container">
+            <div class="result">
+                <p>Your Score is :<span id="score">55%</span></p>
+                <small>this is a description</small>
+                <div class="footer">
+                    <button class="btn">
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+                    <button class="btn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
