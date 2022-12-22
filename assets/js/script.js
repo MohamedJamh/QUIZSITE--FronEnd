@@ -1,4 +1,3 @@
-questions = questions.sort(function(){return Math.random() - 0.5;})
 const steps = [...document.getElementsByClassName('step')];
 const stepper = [...document.getElementsByClassName('navs')];
 const answers = [...document.querySelectorAll('.answer')];
@@ -12,6 +11,7 @@ const answer4 = document.querySelector("#answer4");
 const progresseBar = document.getElementById("progressBar");
 const nextBtn = document.getElementById("nextBtn");
 const finalScore = document.getElementById("finalScore");
+const description = document.getElementById("description");
 var questionSeconds;
 var counterFunction;
 var percentagePerQuestion = (1 * 100) / questions.length;
@@ -58,7 +58,7 @@ function countDown(){
     }
 }
 function startCountDown(){
-    questionSeconds = 5;
+    questionSeconds = 30;
     counterFunction = setInterval("countDown()",1000);
 }
 function stopCountDown(){
@@ -66,6 +66,7 @@ function stopCountDown(){
     timer.innerText = "--";
 }
 function startQuiz(){
+    questions = questions.sort(function(){return Math.random() - 0.5;})
     navigation(1);
     progresse();
     startCountDown();
@@ -78,11 +79,14 @@ function nexQ(action = null){
     }
 
     if(questionIndex + 1 == questions.length){
+        let totale =  (score / percentagePerQuestion) + "/" + questions.length ;
         finalScore.innerText = score + "%";
         if (score < 50) {
-            
-        } else {
-            
+            description.innerText = "Good luck next time You Got:  " + totale;
+        } else if(50 <= score && score <= 70 ) {
+            description.innerText = 'Amazing score !  ' + totale;
+        }else{
+            description.innerText = "Genius !  " + totale;
         }
         stopCountDown();
         navigation(2);
@@ -99,7 +103,9 @@ function nexQ(action = null){
                 setQ();
                 nextBtn.removeAttribute('disabled' ,"");
                 nextBtn.style.cursor = "pointer";
-            },3000);         
+            },3000);
+            
+            
         }
     }
 }
@@ -110,6 +116,7 @@ function setQ(){
     answer2.innerText = questions[questionIndex]['choice2'];
     answer3.innerText = questions[questionIndex]['choice3'];
     answer4.innerText = questions[questionIndex]['choice4'];
+    
 }
 function calculScore(submitedAnswers){
     let correctAnswers = questions[questionIndex]['answer'];
@@ -151,5 +158,11 @@ function resetAnswers(){
         ansr.classList.remove('wrong-answer')
         ansr.querySelector('i').classList.remove('fa-xmark')
     }
+}
+function restart(){
+    questionIndex = -1;
+    score = 0;
+    resetAnswers();
+    startQuiz();
 }
 
