@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 @import './variables';
-@mixin flex($direction,$justify,$align,$gap){
-    display: flex;
-    flex-direction:$direction;
-    justify-content:$justify;
-    align-items: $align;
-    gap:$gap;
-}
+@import './mixins';
 *{
     box-sizing: border-box;
     margin: 0;
@@ -16,73 +10,92 @@
 }
 .hidden{
     display: none;
-    // visibility: hidden;
 }
-.stepper{
-    @include flex(row,space-around,center,0);
-    position: fixed;
-    left: 35%;
-    top: 8%;
-    background-color: white;
-    color: $third-color;
-    border-radius: 5px;
-    width: 30vw;
-    height:50px;
-    font-size: 30px;
-    z-index: 50;
-    .active{
-        color: $secondary-color;
+header{
+    height: 15vh;
+    background-color: $primary-color;
+    @include flex(row,center,center,10px);
+    @include lm(){
+        flex-direction: column;
+    }
+    .stepper{
+        @include flex(row,space-around,center,0);
+        border : 2px solid black;
+        background-color: white;
+        color: $third-color;
+        border-radius: 5px;
+        width: 300px;
+        height:50px;
+        font-size: 30px;
+        z-index: 50;
+        .active{
+            color: $secondary-color;
+        }
+    }
+    .timer{
+        width: 90px;
+        height: 45px;
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 1px;
+        color: white;
+        text-align: center;
+        span.seconds{
+            font-size: 30px;
+        }
+        span.icon{
+            margin: 5px;
+            float: right;
+            font-size: 30px;
+        }
     }
 }
 .container{
-    @include flex(row,center,center,0);
+    @include flex(row,center,start,0);
     background-color: $primary-color;
-    height: 100vh;
-    padding-bottom: 35px;
-
+    min-height: 90vh;
+    max-height: max-content;
+    padding-top: 100px;
+    
+    @include lm(){
+        padding-top: 50px;
+    }
     .greeting{
         @include flex(column,start,center,15px);
         height: 70%;
-        width: 60%;
-        border-radius: 25px;
+        width: 80%;
         color: white;
         background-color: $primary-color;
-        padding-top: 100px;
         h1{
-            font-size: 100px;
+            font-size: 80px;
+            @include lm(){
+                font-size: 30px;
+            }
         }
         p , ul{
             font-size: 25px;
             font-weight: 100;
+            @include lm(){
+                font-size: 20px;
+            }
         }
     }
     .questions{
         background-color: white;
         padding: 25px;
         min-height: max-content;
-        width: 60%;
+        width: 80%;
         border-radius: 25px;
+        @include lm(){
+            width: 100%;
+            border-radius: 0px;
+        }
         .header{
-            @include flex(row,space-between,center,15px);
-            .timer{
-                width: 90px;
-                height: 45px;
-                border: 1px solid $third-color;
-                border-radius: 5px;
-                padding: 1px;
-                color: $primary-color;
-                text-align: center;
-                span.seconds{
-                    font-size: 30px;
-                }
-                span.icon{
-                    width: 50%;
-                    // text-align: center;
-                    font-size: 30px;
-                }
-            }
             p{
                 font-size: 50px;
+                @include lm(){
+                    font-size: 25px;
+                }
             }
         }
         .answer{
@@ -125,19 +138,20 @@
         .footer{
             @include flex(row,space-between,center,10px);
             .progress-bar{
-                width: 90%;
+                width: 100%;
                 height: 40px;
                 border-radius: 25px;
                 background-color: $third-color;
                 padding: 10px 15px;
                 >div{
-                    width: 10%;
+                    width: 0%;
                     height: 20px;
                     border-radius: 15px;
                     font-weight: 500;
                     color: white;
                     background-color: $secondary-color;
                     text-align: center;
+                    transition-duration: 0.5s;
                 }
             }
             .btn{
