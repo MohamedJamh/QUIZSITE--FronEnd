@@ -122,12 +122,14 @@ function calculScore(submitedAnswers){
     let correctAnswers = questions[questionIndex]['answer'];
 
     let allCorrect = false;
-    for( ansr of submitedAnswers){
-        if(!correctAnswers.includes(ansr)){
-            allCorrect = false;
-            break;
-        }else{
-            allCorrect = true;
+    if(correctAnswers.length == submitedAnswers.length){
+        for( ansr of submitedAnswers){
+            if(!correctAnswers.includes(ansr)){
+                allCorrect = false;
+                break;
+            }else{
+                allCorrect = true;
+            }
         }
     }
     if(allCorrect){
