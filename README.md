@@ -7,4 +7,4 @@ Youcode Quiz Site ! La solution qu'on propose est de développer une application
    - L'utilisateur ne peut pas passer à la question suivante qu'àprès avoir répondu à la précédente.
    - L'utilisateur peut voir son résultat vers la fin de test.
    - Chaque question ne peut pas dépasser 30sec, si le timing est cloturé dans ce cas la question doit être considéré comme une réponse fausse.
-   - Ajout de choix multiples pour quelques questions.
+   - choix multiples pour quelques questions.
